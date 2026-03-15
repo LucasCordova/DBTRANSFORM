@@ -6,6 +6,8 @@ startCommand = "bash start.sh"
 cronSchedule = "${CRON_SCHEDULE}"
 
 [variables]
+# Railpack: install postgresql-client (psql) in the runtime image
+RAILPACK_DEPLOY_APT_PACKAGES = "postgresql-client"
 DATABASE_URL = ""
 TRANSFORM_SQL = ""
 DEBUG = "false"
