@@ -1,9 +1,8 @@
 [deploy]
-# Build is handled by Railway
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 3
 
-startCommand = "bash run.sh"
+startCommand = "bash start.sh"
 cronSchedule = "${CRON_SCHEDULE}"
 
 [variables]
