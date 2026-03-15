@@ -1,4 +1,4 @@
-# db-transform
+# dbtransform
 
 A lightweight container that runs a PostgreSQL SQL script against a database. Useful for one-off or scheduled transforms (e.g. via cron, Railway cron, or Kubernetes CronJob).
 
@@ -23,18 +23,18 @@ The SQL runs exactly as written. Wrap in `START TRANSACTION; ... COMMIT;` for tr
 Build and run with environment variables:
 
 ```bash
-docker build -t db-transform .
+docker build -t dbtransform .
 docker run --rm \
   -e DATABASE_URL="postgresql://user:password@host:5432/mydb" \
   -e TRANSFORM_SQL="SELECT NOW();" \
   -e DEBUG=true \
-  db-transform
+  dbtransform
 ```
 
 Or use an env file:
 
 ```bash
-docker run --rm --env-file .env db-transform
+docker run --rm --env-file .env dbtransform
 ```
 
 ## Example `.env`
@@ -52,7 +52,7 @@ DEBUG=false
 With host cron:
 
 ```bash
-0 * * * * docker run --rm --env-file /path/to/.env lucascordova/db-transform
+0 * * * * docker run --rm --env-file /path/to/.env lucascordova/dbtransform
 ```
 
 Or use the same image as the job container in a Kubernetes CronJob.

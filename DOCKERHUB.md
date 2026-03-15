@@ -1,4 +1,4 @@
-# db-transform
+# dbtransform
 
 Runs a PostgreSQL SQL script against a database. Ideal for one-off or scheduled transforms (e.g. cron, Kubernetes CronJob, Railway cron).
 
@@ -14,7 +14,7 @@ Multi-line SQL is fully supported. Change the SQL anytime via environment variab
 docker run --rm \
   -e DATABASE_URL="postgresql://user:password@host:5432/mydb" \
   -e TRANSFORM_SQL="SELECT NOW();" \
-  lucascordova/db-transform
+  lucascordova/dbtransform
 ```
 
 ---
@@ -22,7 +22,7 @@ docker run --rm \
 ## Pull the image
 
 ```bash
-docker pull lucascordova/db-transform
+docker pull lucascordova/dbtransform
 ```
 
 ---
@@ -40,7 +40,7 @@ docker pull lucascordova/db-transform
 ## Using an env file
 
 ```bash
-docker run --rm --env-file .env lucascordova/db-transform
+docker run --rm --env-file .env lucascordova/dbtransform
 ```
 
 Example `.env`:
@@ -60,7 +60,7 @@ DEBUG=false
 With host cron:
 
 ```bash
-0 * * * * docker run --rm --env-file /path/to/.env lucascordova/db-transform
+0 * * * * docker run --rm --env-file /path/to/.env lucascordova/dbtransform
 ```
 
 Or use the same image as the job container in a Kubernetes CronJob or Railway cron service.
